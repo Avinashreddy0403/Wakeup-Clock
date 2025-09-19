@@ -8,25 +8,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Controls top-right -->
-  <div id="controls">
-    <div class="toggle-row">
-      <label class="switch">
-        <input type="checkbox" id="wakeSwitch">
-        <span class="slider round"></span>
-      </label>
-      <span id="wakeLabel">Keep Awake OFF</span>
+  <!-- Navbar -->
+  <div id="navbar">
+    <div id="nav-left">
+      <img src="img/logo.webp" alt="Logo" id="logo">
     </div>
+    <div id="nav-right">
+      <div class="toggle-row">
+        <label class="switch">
+          <input type="checkbox" id="wakeSwitch">
+          <span class="slider round"></span>
+        </label>
+        <span id="wakeLabel">Keep Awake OFF</span>
+      </div>
 
-    <div class="toggle-row">
-      <label class="switch">
-        <input type="checkbox" id="formatSwitch">
-        <span class="slider round"></span>
-      </label>
-      <span id="formatLabel">24-hour</span>
+      <div class="toggle-row">
+        <label class="switch">
+          <input type="checkbox" id="formatSwitch">
+          <span class="slider round"></span>
+        </label>
+        <span id="formatLabel">24-hour</span>
+      </div>
+
+      <button id="fsBtn" title="Toggle Fullscreen">⛶</button>
     </div>
-
-    <button id="fsBtn" title="Toggle Fullscreen">⛶</button>
   </div>
 
   <!-- Clock Box -->

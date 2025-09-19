@@ -1,11 +1,11 @@
 let is24Hour = true;
 let wakeLock = null;
+let hideTimeout;
 
 // Update clock
 function updateClock() {
   let now = new Date();
 
-  // Time
   let hours = now.getHours();
   let minutes = String(now.getMinutes()).padStart(2, '0');
   let seconds = String(now.getSeconds()).padStart(2, '0');
@@ -21,18 +21,11 @@ function updateClock() {
   document.getElementById('clock').textContent =
     `${hours}:${minutes}:${seconds}${ampm}`;
 
-  // Date
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const months = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December"
-  ];
-
-  const dayName = days[now.getDay()];
-  const day = now.getDate();
-  const month = months[now.getMonth()];
-
-  document.getElementById('date').textContent = `${dayName}, ${day} ${month}`;
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const months = ["January","February","March","April","May","June",
+                  "July","August","September","October","November","December"];
+  document.getElementById('date').textContent =
+    `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}`;
 }
 
 // Format switch
@@ -81,6 +74,21 @@ document.getElementById('wakeSwitch').addEventListener('change', async (e) => {
     document.getElementById('wakeLabel').textContent = "Keep Awake OFF";
   }
 });
+
+// 🔥 Navbar + Cursor auto-hide
+function showUI() {
+  document.getElementById("navbar").classList.remove("hidden");
+  document.body.style.cursor = "default";
+
+  clearTimeout(hideTimeout);
+  hideTimeout = setTimeout(() => {
+    document.getElementById("navbar").classList.add("hidden");
+    document.body.style.cursor = "none";
+  }, 3000); // hide after 3s idle
+}
+
+document.addEventListener("mousemove", showUI);
+showUI(); // run once at start
 
 // Run clock
 setInterval(updateClock, 1000);
