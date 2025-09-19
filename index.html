@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logo.webp" type="image/x-icon">
+  <title>WakeUp Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Controls top-right -->
+  <div id="controls">
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox" id="wakeSwitch">
+        <span class="slider round"></span>
+      </label>
+      <span id="wakeLabel">Keep Awake OFF</span>
+    </div>
+
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox" id="formatSwitch">
+        <span class="slider round"></span>
+      </label>
+      <span id="formatLabel">24-hour</span>
+    </div>
+
+    <button id="fsBtn" title="Toggle Fullscreen">⛶</button>
+  </div>
+
+  <!-- Clock Box -->
+  <div id="container">
+    <div id="clockBox">
+      <div id="clock">00:00:00</div>
+    </div>
+    <div id="date"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
